@@ -460,8 +460,8 @@ export function Calm() {
             }}
           >
             <div style={{ marginRight: "100px" }}>
-              {/* <div style={{ display: "none" }}>{user ? <Nav /> : null}</div> */}
-              <div>{user ? <Nav /> : null}</div>
+              <div style={{ display: "none" }}>{user ? <Nav /> : null}</div>
+              {/* <div >{user ? <Nav /> : null}</div> */}
               {/* <div className="calm-score">
           &nbsp;{calm}% <div className="calm-word">Calm</div>
         </div> */}
