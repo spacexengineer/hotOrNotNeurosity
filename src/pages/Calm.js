@@ -14,12 +14,12 @@ Chart.register(...registerables);
 
 const likeWords = [
   "Hot Dawg! 🌭",
-  "Lookin Slick! 😎",
-  "Shawty on! 🔥",
-  "Temperature’s Rising! 🚀",
-  "Workin It! 💪",
-  "Damnnnn Son! 😍",
-  "You’re in LOVE! 🥰",
+  // "Lookin Slick! 😎",
+  // "Shawty on! 🔥",
+  // "Temperature’s Rising! 🚀",
+  // "Workin It! 💪",
+  // "Damnnnn Son! 😍",
+  // "You’re in LOVE! 🥰",
 ];
 
 function getRandomLikeWord() {
@@ -28,11 +28,11 @@ function getRandomLikeWord() {
 }
 
 const dislikeWords = [
-  "Temperature’s Declining 🥶",
-  "Ooohhh, No Connection 😨",
-  "You’re Not Feeling It 😦",
-  "No Love Found 💔",
-  "Not Into It 😖",
+  // "Temperature’s Declining 🥶",
+  // "Ooohhh, No Connection 😨",
+  // "You’re Not Feeling It 😦",
+  // "No Love Found 💔",
+  "Not Into It 💔",
 ];
 
 function getRandomDislikeWord() {
