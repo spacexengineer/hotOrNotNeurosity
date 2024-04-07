@@ -1,17 +1,18 @@
 import React, { useContext, createContext } from "react";
 import { useState, useEffect, useCallback } from "react";
-import { Notion } from "@neurosity/notion";
+// import { Notion } from "@neurosity/notion";
+import { Neurosity } from "@neurosity/sdk";
 import useLocalStorage from "react-use/lib/useLocalStorage";
 
-export const notion = new Notion({
-  autoSelectDevice: false
+export const notion = new Neurosity({
+  autoSelectDevice: false,
 });
 
 const initialState = {
   selectedDevice: null,
   status: null,
   user: null,
-  loadingUser: true
+  loadingUser: true,
 };
 
 export const NotionContext = createContext();
@@ -31,13 +32,11 @@ export function ProvideNotion({ children }) {
 }
 
 function useProvideNotion() {
-  const [
-    lastSelectedDeviceId,
-    setLastSelectedDeviceId
-  ] = useLocalStorage("deviceId");
+  const [lastSelectedDeviceId, setLastSelectedDeviceId] =
+    useLocalStorage("deviceId");
 
   const [state, setState] = useState({
-    ...initialState
+    ...initialState,
   });
 
   const { user, selectedDevice } = state;
@@ -45,7 +44,7 @@ function useProvideNotion() {
   const setSelectedDevice = useCallback((selectedDevice) => {
     setState((state) => ({
       ...state,
-      selectedDevice
+      selectedDevice,
     }));
   }, []);
 
@@ -53,9 +52,7 @@ function useProvideNotion() {
     if (user && !selectedDevice) {
       notion.selectDevice((devices) =>
         lastSelectedDeviceId
-          ? devices.find(
-              (device) => device.deviceId === lastSelectedDeviceId
-            )
+          ? devices.find((device) => device.deviceId === lastSelectedDeviceId)
           : devices[0]
       );
     }
@@ -78,15 +75,13 @@ function useProvideNotion() {
   useEffect(() => {
     setState((state) => ({ ...state, loadingUser: true }));
 
-    const subscription = notion
-      .onAuthStateChanged()
-      .subscribe((user) => {
-        setState((state) => ({
-          ...state,
-          user,
-          loadingUser: false
-        }));
-      });
+    const subscription = notion.onAuthStateChanged().subscribe((user) => {
+      setState((state) => ({
+        ...state,
+        user,
+        loadingUser: false,
+      }));
+    });
 
     return () => {
       subscription.unsubscribe();
@@ -116,6 +111,6 @@ function useProvideNotion() {
     lastSelectedDeviceId,
     setLastSelectedDeviceId,
     logoutNotion,
-    setSelectedDevice
+    setSelectedDevice,
   };
 }
