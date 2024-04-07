@@ -2,6 +2,8 @@
  * Global styles
  */
 
+@import url("https://fonts.googleapis.com/css2?family=Cherry+Swash:wght@400;700&display=swap");
+
 body {
   margin: 0;
   background-color: #e6ecef;
@@ -12,14 +14,45 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Cherry Swash", cursive;
 }
 
 .main-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   flex-wrap: wrap;
+  min-height: 100vh;
+
+  text-align: center;
+  background-image: url("./hotOrNot.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  /* width: 100vw;
+  height: 100vh; */
+}
+
+.overlay {
+  min-height: 700px;
+  min-width: 850px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.9); /* Adjust the opacity as needed */
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.header {
+  background-image: url("https://files.oaiusercontent.com/file-NATgq9D2GNfwejeOmQEEaQbu?se=2024-04-07T19%3A17%3A07Z&sp=r&sv=2021-08-06&sr=b&rscc=max-age%3D299%2C%20immutable&rscd=attachment%3B%20filename%3Dimage.png&sig=VkFsIWHukLgbjxcj8kjIoR1U4jEXkMAry6hLx8TCU7s%3D");
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  width: 100%; /* Ensure it spans the full width */
+  height: 100%;
+  object-fit: cover;
 }
 
 select {
